@@ -556,12 +556,16 @@ const Sidebar = ({
   activeSection,
   setActiveSection,
   data,
-  labels
+  labels,
+  lang,
+  toggleLang
 }: {
   activeSection: string,
   setActiveSection: (s: string) => void,
   data: typeof DATA_FR,
-  labels: typeof LABELS['fr']
+  labels: typeof LABELS['fr'],
+  lang: 'fr' | 'en',
+  toggleLang: () => void
 }) => {
   const navItems = [
     { id: 'overview', label: labels.overview, icon: Terminal },
@@ -634,6 +638,16 @@ const Sidebar = ({
               {item.label}
             </button>
           ))}
+
+          <button
+            onClick={toggleLang}
+            className="w-full nav-item text-[#5e5e5e] hover:bg-gray-100 mt-2"
+          >
+            <span className="w-4 h-4 flex items-center justify-center font-bold text-xs">
+              {lang === 'fr' ? 'EN' : 'FR'}
+            </span>
+            {lang === 'fr' ? 'Switch to English' : 'Passer en français'}
+          </button>
         </nav>
 
         <div className="mt-6 pt-6 border-t border-[#e5e5e5]">
@@ -650,14 +664,10 @@ const Sidebar = ({
 
 const Header = ({
   data,
-  labels,
-  lang,
-  toggleLang
+  labels
 }: {
   data: typeof DATA_FR,
-  labels: typeof LABELS['fr'],
-  lang: 'fr' | 'en',
-  toggleLang: () => void
+  labels: typeof LABELS['fr']
 }) => (
   <motion.div 
     initial={{ opacity: 0, y: -20 }}
@@ -675,12 +685,6 @@ const Header = ({
           <p className="text-sm text-[#5e5e5e] mt-2 max-w-xl">{data.personal.summary}</p>
         </div>
         <div className="flex flex-col items-end gap-2">
-          <button
-            onClick={toggleLang}
-            className="px-3 py-1 bg-[#e5e5e5] hover:bg-[#d4d4d4] text-[#1d1d1f] text-xs font-bold rounded transition-colors"
-          >
-            {lang === 'fr' ? 'EN' : 'FR'}
-          </button>
           <a href={`mailto:${data.personal.email}`} className="btn-primary">
             <Mail className="w-4 h-4" />
             {labels.contact}
@@ -970,6 +974,8 @@ function App() {
             setActiveSection={setActiveSection}
             data={data}
             labels={labels}
+            lang={lang}
+            toggleLang={toggleLang}
           />
           
           <div className="flex-1">
@@ -977,8 +983,6 @@ function App() {
               <Header
                 data={data}
                 labels={labels}
-                lang={lang}
-                toggleLang={toggleLang}
               />
             )}
             
