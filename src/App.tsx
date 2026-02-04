@@ -801,7 +801,7 @@ function App() {
               <div>
                 <h2 className="section-title mb-6">
                   <FolderGit2 className="w-5 h-5 text-[#1f75cb]" />
-                  Projet GitHub
+                  Projets
                 </h2>
                 <ProjectsSection />
               </div>
