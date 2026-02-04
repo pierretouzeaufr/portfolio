@@ -621,7 +621,7 @@ const TechnicalSkills = () => (
   <div className="card card-hover p-6 mb-6">
     <div className="section-title mb-6">
       <Code2 className="w-5 h-5 text-[#1f75cb]" />
-      Skills
+      Technical Skills
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
@@ -791,7 +791,7 @@ function App() {
               <div>
                 <h2 className="section-title mb-6">
                   <Cpu className="w-5 h-5 text-[#fc6d26]" />
-                  Technical Skills
+                  Skills
                 </h2>
                 <SkillsSection />
               </div>
