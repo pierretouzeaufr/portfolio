@@ -54,35 +54,6 @@ npm run build
 # Les fichiers seront dans le dossier `dist/`
 ```
 
-## 🌐 Déploiement
-
-### Vercel
-
-```bash
-# Installer Vercel CLI
-npm i -g vercel
-
-# Déployer
-vercel --prod
-```
-
-Ou connectez votre repo GitHub à Vercel pour le déploiement automatique.
-
-### Netlify
-
-```bash
-# Installer Netlify CLI
-npm i -g netlify-cli
-
-# Déployer
-netlify deploy --prod --dir=dist
-```
-
-### GitHub Pages
-
-1. Poussez le code sur GitHub
-2. Activez GitHub Pages dans les settings
-3. Utilisez une GitHub Action pour build et deploy automatiquement
 
 ## ✏️ Personnalisation
 
@@ -102,8 +73,3 @@ const DATA = {
 };
 ```
 
-Modifiez simplement cet objet pour personnaliser votre portfolio !
-
-## 📄 Licence
-
-MIT - Libre d'utilisation et de modification.
