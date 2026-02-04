@@ -22,8 +22,7 @@ import {
   Lightbulb,
   Handshake,
   Download,
-  MapPin,
-  Globe
+  MapPin
 } from 'lucide-react';
 
 // ============================================
@@ -557,16 +556,12 @@ const Sidebar = ({
   activeSection,
   setActiveSection,
   data,
-  labels,
-  lang,
-  toggleLang
+  labels
 }: {
   activeSection: string,
   setActiveSection: (s: string) => void,
   data: typeof DATA_FR,
-  labels: typeof LABELS['fr'],
-  lang: 'fr' | 'en',
-  toggleLang: () => void
+  labels: typeof LABELS['fr']
 }) => {
   const navItems = [
     { id: 'overview', label: labels.overview, icon: Terminal },
@@ -628,15 +623,6 @@ const Sidebar = ({
           </div>
         </div>
 
-        {/* Language Toggle */}
-        <button
-          onClick={toggleLang}
-          className="w-full card card-hover p-2 mb-4 flex items-center justify-center gap-2 text-sm font-medium text-[#1d1d1f]"
-        >
-          <Globe className="w-4 h-4" />
-          {lang === 'fr' ? 'Switch to English' : 'Passer en Français'}
-        </button>
-
         <nav className="space-y-1">
           {navItems.map(item => (
             <button
@@ -662,7 +648,17 @@ const Sidebar = ({
   );
 };
 
-const Header = ({ data, labels }: { data: typeof DATA_FR, labels: typeof LABELS['fr'] }) => (
+const Header = ({
+  data,
+  labels,
+  lang,
+  toggleLang
+}: {
+  data: typeof DATA_FR,
+  labels: typeof LABELS['fr'],
+  lang: 'fr' | 'en',
+  toggleLang: () => void
+}) => (
   <motion.div 
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -678,7 +674,13 @@ const Header = ({ data, labels }: { data: typeof DATA_FR, labels: typeof LABELS[
           </p>
           <p className="text-sm text-[#5e5e5e] mt-2 max-w-xl">{data.personal.summary}</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col items-end gap-2">
+          <button
+            onClick={toggleLang}
+            className="px-3 py-1 bg-[#e5e5e5] hover:bg-[#d4d4d4] text-[#1d1d1f] text-xs font-bold rounded transition-colors"
+          >
+            {lang === 'fr' ? 'EN' : 'FR'}
+          </button>
           <a href={`mailto:${data.personal.email}`} className="btn-primary">
             <Mail className="w-4 h-4" />
             {labels.contact}
@@ -968,23 +970,20 @@ function App() {
             setActiveSection={setActiveSection}
             data={data}
             labels={labels}
-            lang={lang}
-            toggleLang={toggleLang}
           />
           
           <div className="flex-1">
-            {activeSection !== 'cv' && <Header data={data} labels={labels} />}
+            {activeSection !== 'cv' && (
+              <Header
+                data={data}
+                labels={labels}
+                lang={lang}
+                toggleLang={toggleLang}
+              />
+            )}
             
             {/* Mobile nav - En haut sur mobile */}
             <div className="lg:hidden mb-6 flex flex-col gap-4 no-print">
-               <button
-                  onClick={toggleLang}
-                  className="btn-primary w-full flex items-center justify-center gap-2"
-                >
-                  <Globe className="w-4 h-4" />
-                  {lang === 'fr' ? 'Switch to English' : 'Passer en Français'}
-                </button>
-
               <div className="flex justify-center gap-2 flex-wrap">
                 {['overview', 'experience', 'skills', 'projects', 'cv'].map(sectionId => {
                    // Note: 'cv' maps to 'cv' in LABELS which is "CV PDF"
