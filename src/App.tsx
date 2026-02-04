@@ -48,7 +48,7 @@ const DATA = {
       period: "2024 - Aujourd'hui",
       duration: "En cours",
       location: "Bordeaux",
-      description: "Pour un client grand compte leader dans la téléphonie, travail dans l'équipe Backend (N3) pour la création d'une solution de provisionnement et d'orchestration d'un cloud privé nouvelle génération (à terme + de 30 000 machines virtuelles, volumes, gestion des flux, load balancers, infrastructure ultra sécurisé, etc.). Développement de la solution en suivant les besoins clients, automatisation des process et périodes d'innovation.",
+      description: "Pour un client grand compte leader dans la téléphonie, travail dans l'équipe Backend (N3) pour la création d'une solution de provisionnement et d'orchestration d'un cloud privé nouvelle génération (à terme + de 30 000 machines virtuelles, volumes, gestion des flux, load balancers, infrastructure ultra sécurisée, etc.). Développement de la solution en suivant les besoins clients, automatisation des process et périodes d'innovation.",
       achievements: [
         "Conception d'une solution backend from scratch",
         "Développement d'APIs REST",
@@ -64,7 +64,7 @@ const DATA = {
       period: "2022 - 2024",
       duration: "2 ans",
       location: "Bordeaux",
-      description: "Pour un client grand compte, travail dans l'équipe Services (N2) pour automatiser le maximum de tâches d'automatisation pour un cloud privé de 20 000 machines virtuelles.",
+      description: "Pour un client grand compte, travail dans l'équipe Services (N2) pour automatiser un maximum de tâches sur un cloud privé de 20 000 machines virtuelles.",
       skills: ["PowerShell", "Bash", "Cloud", "Docker", "GitLab CI"],
       current: false
     },
@@ -75,7 +75,7 @@ const DATA = {
       period: "2020 - 2022",
       duration: "2 ans",
       location: "Paris",
-      description: "Dans le bureau d'étude des calculateurs de CNPE, travail sur la conception et la maintenance de banc de tests.",
+      description: "Dans le bureau d'études des calculateurs de CNPE, travail sur la conception et la maintenance de bancs de tests.",
       skills: ["Bash", "Électronique", "Automatismes", "Réseaux", "Systèmes"],
       current: false
     },
@@ -86,7 +86,7 @@ const DATA = {
       period: "2018 - 2020",
       duration: "2 ans",
       location: "Centrale Nucléaire du Blayais",
-      description: "Apprentissage en lien avec mon DUT dans le service automatisme d'un CNPE : maintenance de calculateurs et de cartes électroniques.",
+      description: "Apprentissage en lien avec mon DUT dans le service automatismes d'un CNPE : maintenance de calculateurs et de cartes électroniques.",
       skills: ["Électronique", "Automatismes"],
       current: false
     }
@@ -176,8 +176,8 @@ const DATA = {
     },
     {
       id: 3,
-      name: "Scripts de gestions des machines virtuelles dormantes",
-      description: "Script de Detection, sauvegarde, suppression et communication des VM dormantes en se basant sur des métriques avancés fournis par la stack VMware",
+      name: "Scripts de gestion des machines virtuelles dormantes",
+      description: "Script de détection, sauvegarde, suppression et communication des VM dormantes en se basant sur des métriques avancées fournies par la stack VMware",
       tech: ["VMware", "Vrops", "Powershell", "SMTP", "Gitlab-CI"],
       stars: 0,
       forks: 0,
@@ -187,7 +187,7 @@ const DATA = {
     {
       id: 4,
       name: "Scripts de reporting général d'un cloud privé",
-      description: "Génération quotidien à partir de scripts de l'ensemble des données des backend du client, de la stack VMware, des données clients, etc.",
+      description: "Génération quotidienne à partir de scripts de l'ensemble des données des backends du client, de la stack VMware, des données clients, etc.",
       tech: ["Python", "Powershell", "Gitlab-CI", "Linux", "Windows"],
       stars: 0,
       forks: 0,
@@ -318,7 +318,7 @@ const PDFView = () => (
       <h2 className="text-sm font-bold text-[#1d1d1f] uppercase tracking-wider mb-2 border-b border-[#e5e5e5]">Compétences</h2>
       <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
         <div>
-          <span className="font-medium text-[#1d1d1f]">Languages: </span>
+          <span className="font-medium text-[#1d1d1f]">Langages: </span>
           <span className="text-[#5e5e5e]">{DATA.skills.languages.map(s => s.name).join(', ')}</span>
         </div>
         <div>
