@@ -765,6 +765,23 @@ function App() {
           <div className="flex-1">
             {activeSection !== 'cv' && <Header />}
             
+            {/* Mobile nav - En haut sur mobile */}
+            <div className="lg:hidden mb-6 flex justify-center gap-2 flex-wrap no-print">
+              {['overview', 'experience', 'skills', 'projects', 'cv'].map(section => (
+                <button
+                  key={section}
+                  onClick={() => setActiveSection(section)}
+                  className={`px-3 py-1.5 rounded-lg text-xs capitalize ${
+                    activeSection === section 
+                      ? 'bg-[#1f75cb] text-white' 
+                      : 'bg-white text-[#5e5e5e]'
+                  }`}
+                >
+                  {section === 'cv' ? 'CV PDF' : section}
+                </button>
+              ))}
+            </div>
+            
             {activeSection === 'overview' && (
               <>
                 <PipelineStatus />
@@ -819,23 +836,6 @@ function App() {
             {/* PDF View - Always rendered but styled differently when active */}
             <div className={`card p-8 ${activeSection !== 'cv' ? 'hidden' : ''}`}>
               <PDFView />
-            </div>
-            
-            {/* Mobile nav */}
-            <div className="lg:hidden mt-8 flex justify-center gap-2 flex-wrap no-print">
-              {['overview', 'experience', 'skills', 'projects', 'cv'].map(section => (
-                <button
-                  key={section}
-                  onClick={() => setActiveSection(section)}
-                  className={`px-4 py-2 rounded-lg text-sm capitalize ${
-                    activeSection === section 
-                      ? 'bg-[#1f75cb] text-white' 
-                      : 'bg-white text-[#5e5e5e]'
-                  }`}
-                >
-                  {section === 'cv' ? 'CV PDF' : section}
-                </button>
-              ))}
             </div>
           </div>
         </div>
