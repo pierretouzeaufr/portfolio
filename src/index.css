@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#f5f5f7] text-[#1d1d1f] antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  /* macOS-style cards */
+  .card {
+    @apply bg-white rounded-xl border border-[#e5e5e5] shadow-sm;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-[#d1d1d1];
+  }
+  
+  /* GitLab-inspired badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .badge-default {
+    @apply bg-[#f0f0f0] text-[#5e5e5e] border border-[#e0e0e0];
+  }
+  
+  .badge-primary {
+    @apply bg-[#1f75cb]/10 text-[#1f75cb] border border-[#1f75cb]/20;
+  }
+  
+  .badge-success {
+    @apply bg-[#108548]/10 text-[#108548] border border-[#108548]/20;
+  }
+  
+  .badge-warning {
+    @apply bg-[#fc6d26]/10 text-[#fc6d26] border border-[#fc6d26]/20;
+  }
+  
+  /* Status indicators */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  
+  .status-online {
+    @apply bg-[#108548];
+  }
+  
+  .status-busy {
+    @apply bg-[#fc6d26];
+  }
+  
+  /* Progress bars */
+  .progress-track {
+    @apply h-2 bg-[#f0f0f0] rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full rounded-full;
+  }
+  
+  /* Sidebar navigation */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#5e5e5e] transition-all duration-150;
+  }
+  
+  .nav-item:hover {
+    @apply bg-[#f5f5f7] text-[#1d1d1f];
+  }
+  
+  .nav-item.active {
+    @apply bg-[#1f75cb]/10 text-[#1f75cb] font-medium;
+  }
+  
+  /* Section headers */
+  .section-title {
+    @apply text-lg font-semibold text-[#1d1d1f] flex items-center gap-2;
+  }
+  
+  /* Timeline */
+  .timeline-item {
+    @apply relative pl-6 pb-6 border-l-2 border-[#e5e5e5] last:border-l-0 last:pb-0;
+  }
+  
+  .timeline-dot {
+    @apply absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-[#1f75cb] border-2 border-white;
+  }
+  
+  .timeline-dot.active {
+    @apply bg-[#108548];
+  }
+  
+  /* Code blocks - clean style */
+  .code-block {
+    @apply bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm text-[#d4d4d4] overflow-x-auto;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-[#1f75cb] text-white rounded-lg text-sm font-medium hover:bg-[#1a68b3] transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-[#f0f0f0] text-[#1d1d1f] rounded-lg text-sm font-medium hover:bg-[#e5e5e5] transition-colors;
+  }
+  
+  /* Pipeline stages */
+  .pipeline-stage {
+    @apply flex items-center gap-2;
+  }
+  
+  .pipeline-stage::after {
+    content: '';
+    @apply flex-1 h-0.5 bg-[#e5e5e5] mx-2;
+  }
+  
+  .pipeline-stage:last-child::after {
+    @apply hidden;
+  }
+  
+  .pipeline-stage.completed::after {
+    @apply bg-[#108548];
+  }
+}
+
+/* Custom scrollbar - clean macOS style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#c1c1c1] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#a1a1a1];
+}
+
+/* Selection */
+::selection {
+  @apply bg-[#1f75cb]/20 text-[#1d1d1f];
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  .card {
+    box-shadow: none !important;
+    border: 1px solid #e5e5e5 !important;
+    break-inside: avoid;
+  }
+}
